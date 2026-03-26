@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة وزارة الداخلية | IQ City RP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #000000 !important; /* توحيد الخلفية للسواد */
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --police-blue: #1e40af;
+            --police-red: #b91c1c;
+            --police-glow: rgba(30, 64, 175, 0.4);
+        }
+
+        .police-glow {
+            box-shadow: 0 0 20px var(--police-glow);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .active .accordion-content {
+            max-height: 10000px;
+            padding: 25px 20px;
+        }
+
+        .active .arrow-icon {
+            transform: rotate(180deg);
+            color: #ffffff;
+        }
+
+        /* إصلاح مشكلة تداخل الألوان (اللحمة) */
+        .law-card {
+            border: none !important; /* إزالة البوردر الذي يسبب الخط الأزرق فوق الأحمر */
+            transition: 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .law-card:hover {
+            box-shadow: 0 0 15px rgba(30, 64, 175, 0.2);
+        }
+
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #111;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .rank-table th, .rank-table td {
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .rank-table th {
+            background-color: var(--police-blue);
+            color: white;
+        }
+
+        .rank-table tr:nth-child(even) { background: #181818; }
+
+        @keyframes police-flash {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .patrol-line {
+            height: 10px;
+            background: linear-gradient(-45deg, #1e40af, #b91c1c, #1e40af, #b91c1c);
+            background-size: 400% 400%;
+            animation: police-flash 2s ease infinite;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .founder-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--police-blue);
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .founder-img:hover {
+            border-color: var(--police-red);
+            transform: scale(1.05);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--police-blue); border-radius: 10px; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="bg-[#000000] py-6 sticky top-0 z-50 relative border-none">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="text-blue-600 text-xl md:text-2xl font-black tracking-tighter">
+                IQ CITY <span class="text-red-600">RP</span>
+            </div>
+            <div class="text-white text-xl md:text-2xl font-black">
+                <span class="text-blue-600">وزارة</span> الداخلية <span class="text-red-600">MOI</span>
+            </div>
+            <a href="fivem://connect/IP_HERE" class="bg-blue-700 hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-bold transition-all text-xs md:text-sm">
+                دخول المدينة
+            </a>
+        </div>
+        <div class="patrol-line"></div>
+    </nav>
+
+    <div class="pt-16 pb-12 bg-[#000000]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-center mb-12">
+                <span class="text-blue-600">القيادة العليا</span> لوزارة الداخلية
+            </h2>
+            <div class="flex flex-wrap justify-center gap-12">
+                <div class="founder-card text-center group">
+                    <img src="vice_minister.png" alt="نائب الوزير" class="founder-img mx-auto mb-4 bg-gray-900">
+                    <p class="text-xl font-bold text-white">نائب وزير الداخلية</p>
+                    <p class="text-red-500 text-sm">اسم العضو</p>
+                </div>
+                <div class="founder-card text-center group">
+                    <img src="minister.png" alt="وزير الداخلية" class="founder-img mx-auto mb-4 bg-gray-900">
+                    <p class="text-xl font-bold text-white">وزير الداخلية</p>
+                    <p class="text-blue-500 text-sm">REES</p>
+                </div>
+                <div class="founder-card text-center group">
+                    <img src="advisor.png" alt="مستشار الوزير" class="founder-img mx-auto mb-4 bg-gray-900">
+                    <p class="text-xl font-bold text-white">مستشار وزير الداخلية</p>
+                    <p class="text-gray-400 text-sm">اسم العضو</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto max-w-[1200px] py-12 px-4 pb-32">
+        <div class="space-y-6">
+
+            <div class="accordion-item law-card bg-[#121212] rounded-xl overflow-hidden shadow-2xl">
+                <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-right hover:bg-[#181818] transition-all border-r-4 border-blue-600">
+                    <span class="text-xl font-bold text-white">📋 قوانين وزارة الداخلية العامة</span>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content px-10 text-center">
+                    <p class="mb-4 text-red-500 font-bold">يتم إضافة القوانين هنا لاحقاً...</p>
+                    <div class="h-[1px] bg-white/10 w-1/2 mx-auto my-4"></div>
+                </div>
+            </div>
+
+            <div class="accordion-item law-card bg-[#121212] rounded-xl overflow-hidden shadow-2xl">
+                <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-right hover:bg-[#181818] transition-all border-r-4 border-red-600">
+                    <span class="text-xl font-bold text-white">⭐️ الرتب و الترقيات العسكرية</span>
+                    <svg class="arrow-icon w-6 h-6 text-red-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content px-8">
+                    <table class="rank-table font-bold">
+                        <thead>
+                            <tr>
+                                <th>الفئة</th>
+                                <th>الرتبة</th>
+                                <th>الترقية القادمة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="text-blue-400">الأفراد</td><td>جندي</td><td>جندي اول</td></tr>
+                            <tr><td class="text-blue-400">الأفراد</td><td>جندي اول</td><td>نائب عريف</td></tr>
+                            <tr><td class="text-blue-400">ضباط صف</td><td>نائب عريف</td><td>عريف</td></tr>
+                            <tr><td class="text-blue-400">ضباط صف</td><td>عريف</td><td>رئيس عرفاء</td></tr>
+                            <tr><td class="text-red-400">التحقيق</td><td>نائب مسؤول التحقيق</td><td>مسؤول التحقيق</td></tr>
+                            <tr><td class="text-red-400">التحقيق</td><td>مسؤول التحقيق</td><td>ملازم</td></tr>
+                            <tr><td class="text-yellow-500">الضباط</td><td>ملازم</td><td>ملازم أول</td></tr>
+                            <tr><td class="text-yellow-500">الضباط</td><td>ملازم أول</td><td>نقيب</td></tr>
+                            <tr><td class="text-yellow-500">الضباط</td><td>نقيب</td><td>رائد</td></tr>
+                            <tr><td class="text-yellow-500">الضباط</td><td>رائد</td><td>مقدم</td></tr>
+                            <tr><td class="text-orange-500">قادة</td><td>مقدم</td><td>عقيد</td></tr>
+                            <tr><td class="text-orange-500">قادة</td><td>عقيد</td><td>عميد</td></tr>
+                            <tr><td class="text-orange-500">قادة</td><td>عميد</td><td>لواء</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="accordion-item law-card bg-[#121212] rounded-xl overflow-hidden shadow-2xl">
+                <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-right hover:bg-[#181818] border-r-4 border-blue-600">
+                    <span class="text-xl font-bold text-white">🕒 نظام ساعات التواجد العسكري</span>
+                    <svg class="arrow-icon w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content px-10 text-center">
+                    <div class="p-6 bg-blue-900/10 border border-blue-500/20 rounded-lg">
+                        <p class="text-lg">نظام التواجد موحد لجميع الرتب العسكرية:</p>
+                        <p class="text-3xl font-black text-blue-500 mt-2">يتم تحديد الساعات هنا</p>
+                        <p class="text-sm text-gray-400 mt-2">* ملاحظة: عدم الالتزام بالساعات يؤدي لتأخير الترقية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item law-card bg-[#121212] rounded-xl overflow-hidden shadow-2xl">
+                <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-right hover:bg-[#181818] border-r-4 border-red-600">
+                    <span class="text-xl font-bold text-white">🔑 مفاتيح الاختصارات</span>
+                    <svg class="arrow-icon w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content px-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-right">
+                        <div class="bg-[#1a1a1a] p-4 rounded border-r-2 border-blue-500">
+                            <span class="text-blue-500 font-bold">سحب المكلبج:</span> سيتم الإضافة..
+                        </div>
+                        <div class="bg-[#1a1a1a] p-4 rounded border-r-2 border-red-500">
+                            <span class="text-red-500 font-bold">تغيير الاسم بالراديو:</span> سيتم الإضافة..
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-gray-400 text-sm border-t border-white/5 bg-[#000000]">
+        <p class="mb-2">تطوير IQ City RP &copy; 2026</p>
+        <p class="mt-2">
+            <a href="https://discord.com/users/706505051413610516" target="_blank"
+                class="text-blue-600 font-extrabold text-lg hover:text-red-600 transition-all duration-300">
+                بإدارة المسؤول REES
+            </a>
+        </p>
+    </footer>
+    
+    <script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // يغلق القوائم الأخرى عند فتح قائمة جديدة لضمان الترتيب
+            document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
